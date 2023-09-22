@@ -8,11 +8,14 @@ import com.project.springapistudy.domain.menu.service.UpdateMenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 @RequiredArgsConstructor
 public class UpdateMenuServiceImpl implements UpdateMenuService {
     private final MenuRepository menuRepository;
 
+    @Transactional
     @Override
     public void execute(Long id, UpdateMenuReqDto reqDto) {
         Menu menu = menuRepository.findById(id).orElseThrow(MenuNotFoundException::new);
@@ -23,6 +26,5 @@ public class UpdateMenuServiceImpl implements UpdateMenuService {
         if (updatePrice == null) updatePrice = menu.getPrice();
 
         menu.updateMenu(updateName, updatePrice);
-        menuRepository.save(menu);
     }
 }

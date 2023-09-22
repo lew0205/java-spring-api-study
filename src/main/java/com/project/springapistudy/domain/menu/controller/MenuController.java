@@ -3,6 +3,7 @@ package com.project.springapistudy.domain.menu.controller;
 import com.project.springapistudy.domain.menu.dto.req.RegisterMenuReqDto;
 import com.project.springapistudy.domain.menu.dto.req.UpdateMenuReqDto;
 import com.project.springapistudy.domain.menu.dto.res.GetMenuResDto;
+import com.project.springapistudy.domain.menu.service.DeleteMenuService;
 import com.project.springapistudy.domain.menu.service.GetMenuService;
 import com.project.springapistudy.domain.menu.service.RegisterMenuService;
 import com.project.springapistudy.domain.menu.service.UpdateMenuService;
@@ -24,6 +25,7 @@ public class MenuController {
     private final RegisterMenuService registerMenuService;
     private final GetMenuService getMenuService;
     private final UpdateMenuService updateMenuService;
+    private final DeleteMenuService deleteMenuService;
 
     @PostMapping
     public ResponseEntity<Void> registerMenu(@RequestBody RegisterMenuReqDto reqDto) {
@@ -44,6 +46,7 @@ public class MenuController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteMenu(@PathVariable Long id) {
-        return null;
+        deleteMenuService.execute(id);
+        return ResponseEntity.ok().build();
     }
 }

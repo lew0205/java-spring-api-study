@@ -22,11 +22,8 @@ public class Menu {
 
     private Long price;
 
-    public void updateCoffeeName(String name) {
+    public void updateMenu(String name, Long price) {
         this.name = name;
-    }
-
-    public void updateCoffeePrice(Long price) {
         this.price = price;
     }
 

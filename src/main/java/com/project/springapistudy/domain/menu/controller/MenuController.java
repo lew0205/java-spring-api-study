@@ -1,9 +1,10 @@
-package com.project.springapistudy.domain.controller;
+package com.project.springapistudy.domain.menu.controller;
 
-import com.project.springapistudy.domain.dto.req.RegisterMenuReqDto;
-import com.project.springapistudy.domain.dto.req.UpdateMenuReqDto;
-import com.project.springapistudy.domain.dto.res.GetMenuResDto;
-import com.project.springapistudy.domain.service.RegisterMenuService;
+import com.project.springapistudy.domain.menu.dto.req.RegisterMenuReqDto;
+import com.project.springapistudy.domain.menu.dto.req.UpdateMenuReqDto;
+import com.project.springapistudy.domain.menu.dto.res.GetMenuResDto;
+import com.project.springapistudy.domain.menu.service.GetMenuService;
+import com.project.springapistudy.domain.menu.service.RegisterMenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 public class MenuController {
 
     private final RegisterMenuService registerMenuService;
+    private final GetMenuService getMenuService;
 
     @PostMapping
     public ResponseEntity<Void> registerMenu(@RequestBody RegisterMenuReqDto reqDto) {
@@ -29,7 +31,7 @@ public class MenuController {
 
     @GetMapping("/{id}")
     public ResponseEntity<GetMenuResDto> getMenu(@PathVariable Long id) {
-        return null;
+        return ResponseEntity.ok(getMenuService.execute(id));
     }
 
     @PutMapping("/{id}")

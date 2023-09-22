@@ -1,7 +1,7 @@
-package com.project.springapistudy.domain.dto.req;
+package com.project.springapistudy.domain.menu.dto.req;
 
 
-import com.project.springapistudy.domain.Menu;
+import com.project.springapistudy.domain.menu.Menu;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor

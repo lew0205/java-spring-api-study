@@ -1,7 +1,8 @@
-package com.project.springapistudy.domain.service;
+package com.project.springapistudy.domain.menu.service.impl;
 
-import com.project.springapistudy.domain.dto.req.RegisterMenuReqDto;
-import com.project.springapistudy.domain.repository.MenuRepository;
+import com.project.springapistudy.domain.menu.dto.req.RegisterMenuReqDto;
+import com.project.springapistudy.domain.menu.repository.MenuRepository;
+import com.project.springapistudy.domain.menu.service.RegisterMenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -22,9 +22,19 @@ public class Menu {
 
     private Long price;
 
+    private boolean deleted = false;
+
     public void updateMenu(String name, Long price) {
         this.name = name;
         this.price = price;
+    }
+
+    public void deleteMenu() {
+        deleted = true;
+    }
+
+    public void restoreMenu() {
+        deleted = false;
     }
 
     @Builder

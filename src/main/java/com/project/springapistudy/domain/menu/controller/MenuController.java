@@ -11,6 +11,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 
 //등록 : [POST] /menu
 //조회 : [GET] /menu/{id}
@@ -28,7 +30,7 @@ public class MenuController {
     private final DeleteMenuService deleteMenuService;
 
     @PostMapping
-    public ResponseEntity<Void> registerMenu(@RequestBody RegisterMenuReqDto reqDto) {
+    public ResponseEntity<Void> registerMenu(@RequestBody @Valid RegisterMenuReqDto reqDto) {
         registerMenuService.execute(reqDto);
         return ResponseEntity.ok().build();
     }
@@ -39,7 +41,7 @@ public class MenuController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Void> updateMenu(@PathVariable Long id, @RequestBody UpdateMenuReqDto reqDto) {
+    public ResponseEntity<Void> updateMenu(@PathVariable Long id, @RequestBody @Valid UpdateMenuReqDto reqDto) {
         updateMenuService.execute(id, reqDto);
         return ResponseEntity.ok().build();
     }

@@ -22,8 +22,6 @@ public class UpdateMenuServiceImpl implements UpdateMenuService {
 
         String updateName = reqDto.getName();
         Long updatePrice = reqDto.getPrice();
-        if (updateName == null) updateName = menu.getName();
-        if (updatePrice == null) updatePrice = menu.getPrice();
 
         menu.updateMenu(updateName, updatePrice);
     }

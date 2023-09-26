@@ -7,6 +7,8 @@ import com.project.springapistudy.domain.menu.service.DeleteMenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 @RequiredArgsConstructor
 public class DeleteMenuServiceImpl implements DeleteMenuService {
@@ -14,6 +16,7 @@ public class DeleteMenuServiceImpl implements DeleteMenuService {
     private final MenuRepository menuRepository;
 
     @Override
+    @Transactional
     public void execute(Long id) {
         Menu menu = menuRepository.findById(id).orElseThrow(MenuNotFoundException::new);
         menu.deleteMenu();

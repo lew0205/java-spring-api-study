@@ -5,11 +5,18 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 public class GetMenuResDto {
 
-    private final Menu menu;
+    private final Long id;
+    private final String name;
+    private final Long price;
+    private final boolean deleted;
 
     public GetMenuResDto(Menu menu) {
-        this.menu = menu;
+        id = menu.getId();
+        name = menu.getName();
+        price = menu.getPrice();
+        deleted = menu.isDeleted();
     }
 }

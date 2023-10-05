@@ -6,12 +6,15 @@ import com.project.springapistudy.domain.menu.service.RegisterMenuService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 @RequiredArgsConstructor
 public class RegisterMenuServiceImpl implements RegisterMenuService {
 
     private final MenuRepository menuRepository;
 
+    @Transactional
     @Override
     public void execute(RegisterMenuReqDto reqDto) {
         menuRepository.save(reqDto.toEntity());

@@ -3,10 +3,12 @@ package com.project.springapistudy.domain.menu.dto.req;
 
 import com.project.springapistudy.domain.menu.Menu;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import javax.validation.constraints.NotNull;
 
 @AllArgsConstructor
+@Getter
 public class RegisterMenuReqDto {
 
     @NotNull
